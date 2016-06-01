@@ -159,11 +159,14 @@ function route($page)
 		case 'tes_rate':
 				echo Lib::rate(18);
 			break;
+		case 'home':
+				include "view/customer/home.php";
+			break;
 
 
 		case 'main' :
 				default : 
-				// header("location:index.php");
+				Lib::redirect('home');
 			break;
 	}
 }
