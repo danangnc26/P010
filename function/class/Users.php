@@ -28,8 +28,8 @@ class Users extends Core{
 					Lib::redirect('show_welcome');
 					echo 'admin';
 				}elseif($_SESSION['level_user'] == 'customer'){
-					// Lib::redirect('home');
-					echo 'customer';
+					Lib::redirect('home');
+					// echo 'customer';
 				}else{
 					echo "default";
 				}
