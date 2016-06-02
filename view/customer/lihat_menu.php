@@ -49,6 +49,7 @@
 		<hr>
 		<?php
 		if(isset($_GET['nama_kategori'])){
+			if(!empty(Lib::gambarKategori($_GET['id_kategori']))){
 		?>
 		<div class="bg-image bg-image-kategori" style="
 		background: url(<?php echo base_url.'public/images/'.Lib::gambarKategori($_GET['id_kategori']) ?>);  
@@ -61,12 +62,13 @@
 		</div>
 		<?php
 		}
+		}
 		?>
 		<!-- MENU -->
 		<?php
 		if($data == null)
 		{
-
+			echo "Data tidak ditemukan";
 		}else{
 		foreach ($data as $key => $value) {
 		?>
