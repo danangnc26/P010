@@ -40,10 +40,12 @@ section.main{
 
 .login{
 	width:30%;
+	min-height: 200px;
 }
 
 .general{
 	width: 85%;
+	min-height: 525px;
 }
 
 footer{
@@ -500,3 +502,39 @@ button.btn-hold-kategori{
   font-size: 10px;
   font-weight: 400;
 }
+
+.bg-image {
+    /* image specified in separate class below */
+    height: 100px;
+    width: 100%; 
+
+}
+
+.bg-image-kategori {
+    /*background: url(http://localhost:90/p9-luis/public/images/28660.jpg);*/
+    background-size: 100%;
+    background-repeat: no-repeat;
+    
+    /* lt ie8 */
+    -ms-background-position-x: center;
+    -ms-background-position-y: center;
+    background-position: center center;
+    /* scale bg image proportionately */
+    /*background-size: cover;*/
+    /* ie8 workaround -
+       http://louisremi.github.io/background-size-polyfill/ */
+    -ms-behavior: url(/backgroundsize.min.htc);
+    /* prevent scaling past src width (or not) */
+    /* max-width: 1200px; */ 
+}
+
+/* example media queries */
+@media only screen and (min-width : 768px) {
+
+        .bg-image { height: 320px; }
+    }
+
+@media only screen and (min-width : 1200px) {
+
+        .bg-image { height: 100px; }
+    }

@@ -243,5 +243,42 @@ Class Lib{
 		return $result[0]['jumlah_testimoni'];
 	}
 
+	public static function getTestimoni($id_menu)
+	{
+		$j = new Rating();
+		$result = $j->findBy('id_menu', $id_menu);
+		return $result;
+	}
+
+	public static function namaUser($id)
+	{
+		$p = new Pesan();
+		$result = $p->findBy('id_pesan', $id);
+		$u = new Users();
+		$result2 = $u->findBy('id_user', $result[0]['id_user']);
+		return $result2[0]['nama_lengkap'];
+	}
+
+	public static function gambarKategori($id)
+	{
+		$k = new Kategori();
+		$result = $k->findBy('id_kategori', $id);
+		return $result[0]['gambar'];
+	}
+
+	public static function gambarMenu($id)
+	{
+		$j = new Menu();
+		$result = $j->findBy('id_menu', $id);
+		return $result[0]['gambar'];	
+	}
+
+	public static function findMenu($id)
+	{
+		$j = new Menu();
+		$result = $j->findBy('id_menu', $id);
+		return $result;	
+	}
+
 
 }

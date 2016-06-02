@@ -28,7 +28,7 @@
 			}else{
 			foreach ($data as $key => $value) {
 			?>
-				<tr>
+				<tr <?php echo ($value['status'] == 4) ? 'style="background:#eafbf4"' : 'style="background:#ffebeb"' ?>>
 					<td data-label="No."><?php echo $key+1 ?></td>
 					<td data-label="Tanggal"><?php echo Lib::dateInd($value['tanggal'], true) ?></td>
 					<td data-label="Total"><?php echo Lib::ind($value['total']) ?></td>

@@ -110,6 +110,16 @@ function route($page)
 				$pesan->hapusPesanan($g['id_pesan']);
 			break;
 
+		case 'index_laporan':
+				if(isset($_GET['bulan']) && isset($_GET['tahun'])){
+					$dt = $_GET['tahun'].'-'.$_GET['bulan'];
+				}else{
+					$dt = date('Y-m');
+				}
+				$data = $pesan->getLaporan($dt);
+				include "view/admin/laporan/index.php";
+			break;
+
 		// // // // // ADMIN // // // // // 
 		
 		case 'lihat_menu':
@@ -120,6 +130,14 @@ function route($page)
 				}
 				$data2 = $item->keranjang();
 				include "view/customer/lihat_menu.php";
+			break;
+		case 'lihat_menu_unregister':
+				if(isset($g['id_kategori']) && isset($g['nama_kategori'])){
+					$data = $menu->findByKategori($g['id_kategori']);
+				}else{
+					$data = $menu->index();
+				}
+				include "view/customer/lihat_menu2.php";
 			break;
 		case 'tambah_ke_keranjang':
 				if(!empty($p)){
@@ -159,6 +177,21 @@ function route($page)
 		case 'tes_rate':
 				echo Lib::rate(18);
 			break;
+
+		case 'ubah_profil':
+				$data = $user->getUser();
+				include "view/customer/ubah_profil.php";
+			break;
+		case 'update_profil':
+				$user->updateProfil($p);
+			break;
+		case 'ubah_password':
+				include "view/customer/ubah_password.php";
+			break;
+		case 'update_password':
+				$user->updatePassword($p);
+			break;
+
 		case 'home':
 				include "view/customer/home.php";
 			break;

@@ -17,7 +17,7 @@ class Rating extends Core{
 					'id_menu'	=> $input['id_menu'],
 					'id_pesan'	=> $input['id_pesan'],
 					'rate'		=> $input['rate'],
-					'testimoni'	=> $input['testimoni']
+					'testimoni'	=> nl2br($input['testimoni'])
 					];
 			if($this->save($data)){
 				echo '<script>window.top.location.reload();</script>';

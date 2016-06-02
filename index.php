@@ -53,104 +53,9 @@ if(isset($_GET['page'])){
 	</div>
 </section>
 <footer>
-	Copyright &copy; <?php echo date("Y") ?> SIPMAK - RM. Anugrah
+	Copyright &copy; <?php echo date("Y") ?> SIPMAK - Restoran Anugrah
 </footer>
 </body>
-
-<!-- EXEMPLE 1 : BASIC -->
-<<!-- div class="exemple">
-	<em>Exemple 1 (<strong>Basic exemple without options</strong>) :</em>
-	<div class="basic" data="12_1"></div>
-</div>
-<div class="notice">
-<pre>
-<?php
-echo htmlentities('<!-- JS to add -->
-<script type="text/javascript">
-  $(document).ready(function(){
-    $(".bacic").jRating();
-  });
-</script>
-');
-?>
-</pre>
-</div> -->
-
-
-	
-
-	
-<!-- EXEMPLE 3 -->
-<<!-- div class="exemple">
-	<em>Exemple 3 (step : <strong>true</strong> - average <strong>18</strong> - id <strong>3</strong> - <strong>15</strong> stars) :</em>
-	<div class="exemple3" data="18_3"></div>
-</div>
-<div class="notice">
-<pre>
-<?php
-echo htmlentities('<!-- JS to add -->
-<script type="text/javascript">
-  $(document).ready(function(){
-    $(".exemple3").jRating({
-	  step:true, // no half-star when mousemove
-	  length : 20, // nb of stars
-	  decimalLength:0 // number of decimal in the rate
-    });
-  });
-</script>
-');
-?>
-</pre>
-</div> -->
-
-<!-- EXEMPLE 4 -->
-<!-- <div class="exemple">
-	<em>Exemple 4 (<strong>Rate is disabled</strong>) :</em>
-	<div class="exemple4" data="10_4"></div>
-</div>
-<div class="notice">
-<pre>
-<?php
-echo htmlentities('<!-- JS to add -->
-<script type="text/javascript">
-  $(document).ready(function(){
-    $(".exemple4").jRating({
-	  isDisabled : true
-	});
-  });
-</script>
-');
-?>
-</pre>
-</div> -->
-
-<!-- EXEMPLE 5 -->
-<!-- <div class="exemple">
-	<em>Exemple 5 (<strong>With onSuccess &amp; onError methods</strong>) :</em>
-	<div class="exemple5" data="10_5"></div>
-</div>
-<div class="notice">
-<pre>
-<?php
-echo htmlentities('<!-- JS to add -->
-<script type="text/javascript">
-  $(document).ready(function(){
-    $(".exemple5").jRating({
-	  length:10,
-	  decimalLength:1,
-	  onSuccess : function(){
-	    alert(\'Success : your rate has been saved :)\');
-	  },
-	  onError : function(){
-	    alert(\'Error : please retry\');
-	  }
-	});
-  });
-</script>
-');
-?>
-</pre>
-</div> -->
 
 <script type="text/javascript">
 		$(document).ready(function(){
@@ -168,25 +73,6 @@ echo htmlentities('<!-- JS to add -->
 				// decimalLength : 1
 			});
 			
-			$('.exemple3').jRating({
-				step:true,
-				length : 20
-			});
-			
-			$('.exemple4').jRating({
-				isDisabled : true
-			});
-			
-			$('.exemple5').jRating({
-				length:10,
-				decimalLength:1,
-				onSuccess : function(){
-					alert('Success : your rate has been saved :)');
-				},
-				onError : function(){
-					alert('Error : please retry');
-				}
-			});
 		});
 	</script>
 </html>

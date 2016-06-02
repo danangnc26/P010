@@ -43,7 +43,9 @@
 								<?php echo $value1['alamat'].', '.Lib::namaKecamatan($value1['id_kecamatan']) ?>
 							</div>
 						</div>
-						<?php  }} ?>
+						<?php  
+						$i_kecamatan[] = $value1['id_kecamatan'];
+						}} ?>
 					</div>
 				</div>
 			</div>
@@ -120,11 +122,16 @@
 				?>
 				<div class="menu-hold">
 					<div class="row">
-						<div class="col-md-7" >
-							<h5 class="nama-menu"><?php echo Lib::namaMenu($value2['id_menu']) ?></h5>
-							<p class="deskripsi">
-								<?php echo Lib::deskripsiMenu($value2['id_menu']) ?>
-							</p>
+						<div class="col-md-7" style="overflow:hidden">
+							<div class="pull-left">
+								<img src="<?php echo base_url.'public/images/'.Lib::gambarMenu($value2['id_menu']) ?>" style="width:80px; height:80px; margin-right:10px">
+							</div>
+							<div class="pull-left">
+								<h5 class="nama-menu"><?php echo Lib::namaMenu($value2['id_menu']) ?></h5>
+								<p class="deskripsi">
+									<small><?php echo Lib::deskripsiMenu($value2['id_menu']) ?></small>
+								</p>
+							</div>	
 						</div>	
 						<div class="col-md-5" >
 							<div class="row">
@@ -156,14 +163,14 @@
 				<div class="col-md-7"></div>
 				<div class="col-md-5" style="padding-right:25px; margin-bottom:20px;">
 					<h5 class="pull-right">
-						<?php echo ($_SESSION['kecamatan'] != '3374110') ? 'Rp. 10.000' : '-' ?>
-								<?php
-								if(($_SESSION['kecamatan'] != '3374110')){
-									$pengiriman = 10000;
-								}else{
-									$pengiriman = 0;
-								}
-						?>
+						<?php echo (implode('', $i_kecamatan) != '3374110') ? 'Rp. 10.000' : '-' ?>
+						<?php
+						if((implode('', $i_kecamatan) != '3374110')){
+							$pengiriman = 10000;
+						}else{
+							$pengiriman = 0;
+						}
+				?>
 					</h5>
 					<h5>Biaya Pengiriman</h5>
 				</div>

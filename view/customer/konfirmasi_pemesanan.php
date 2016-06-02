@@ -101,11 +101,16 @@
 		?>
 		<div class="menu-hold">
 			<div class="row">
-				<div class="col-md-7" >
-					<h5 class="nama-menu"><?php echo Lib::namaMenu($value2['id_menu']) ?></h5>
-					<p class="deskripsi">
-						<?php echo Lib::deskripsiMenu($value2['id_menu']) ?>
-					</p>
+				<div class="col-md-7" style="overflow:hidden">
+					<div class="pull-left">
+							<img src="<?php echo base_url.'public/images/'.Lib::gambarMenu($value2['id_menu']) ?>" style="width:80px; height:80px; margin-right:10px">
+						</div>
+						<div class="pull-left">
+							<h5 class="nama-menu"><?php echo Lib::namaMenu($value2['id_menu']) ?></h5>
+							<p class="deskripsi">
+								<small><?php echo Lib::deskripsiMenu($value2['id_menu']) ?></small>
+							</p>
+						</div>	
 				</div>	
 				<div class="col-md-5" >
 					<div class="row">

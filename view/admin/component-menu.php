@@ -1,5 +1,5 @@
 <ul class="adm-menu">
-	<a href="<?php echo app_base.'index_kategori' ?>">
+	<a href="<?php echo app_base.'show_welcome' ?>">
 		<li>
 			<i class="fa fa-home"></i> Halaman Awal
 		</li>
@@ -24,7 +24,7 @@
 			<i class="fa fa-users"></i> Kelola Pelanggan
 		</li>
 	</a>
-	<a href="<?php echo app_base.'index_' ?>">
+	<a href="<?php echo app_base.'index_laporan' ?>">
 		<li>
 			<i class="fa fa-paste"></i> Laporan
 		</li>

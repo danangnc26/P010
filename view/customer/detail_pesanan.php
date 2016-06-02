@@ -103,11 +103,16 @@
 		?>
 		<div class="menu-hold">
 			<div class="row">
-				<div class="col-md-7" >
-					<h5 id="nama_menu_<?php echo $value2['id_menu'] ?>" class="nama-menu"><?php echo Lib::namaMenu($value2['id_menu']) ?></h5>
-					<p id="deskripsi_menu_<?php echo $value2['id_menu'] ?>" class="deskripsi">
-						<?php echo Lib::deskripsiMenu($value2['id_menu']) ?>
-					</p>
+				<div class="col-md-7" style="overflow:hidden">
+					<div class="pull-left">
+							<img src="<?php echo base_url.'public/images/'.Lib::gambarMenu($value2['id_menu']) ?>" style="width:80px; height:80px; margin-right:10px">
+						</div>
+						<div class="pull-left">
+							<h5 id="nama_menu_<?php echo $value2['id_menu'] ?>" class="nama-menu"><?php echo Lib::namaMenu($value2['id_menu']) ?></h5>
+							<p id="deskripsi_menu_<?php echo $value2['id_menu'] ?>" class="deskripsi">
+								<small><?php echo Lib::deskripsiMenu($value2['id_menu']) ?></small>
+							</p>
+						</div>	
 					<input type="hidden" class="for_mdl_<?php echo $value2['id_menu'] ?>" value="<?php echo $value2['id_menu'] ?>">
 					<input type="hidden" class="for_mdl_id_pesan_<?php echo $value2['id_menu'] ?>" value="<?php echo $_GET['id_pesan'] ?>">
 				</div>	
@@ -200,25 +205,6 @@
         <form method="post" action="<?php echo app_base.'save_feedback' ?>">
         <div class="modal-body">
         <iframe name="theFrame"  frameborder="0" scrolling="no" width="100%" height="450"></iframe>
-          <!-- <div class="mdl-nama-menu nama-menu"></div>
-          <p class="mdl-deskripsi-menu deskripsi"></p>
-          <input type="hidden" class="mdl_id_menu" name="id_menu">
-          <input type="hidden" class="mdl_id_pesan" name="id_pesan">
-          <input type="text" class="mdl_rating">
-          <hr>
-          <div class="form-group">
-          	<label class="b">Beri Rating</label>
-          	<div class="exemple6" data="1_2" onclick="rate_it()"></div>
-          </div>
-          <div class="form-group">
-          	<label class="b">Tulis Testimoni</label>
-          	<textarea name="testimoni" class="form-control cst" rows="5"></textarea>
-          </div> -->
-        </div>
-        <!-- <div class="modal-footer">
-          
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div> -->
         </form>
       </div>
       

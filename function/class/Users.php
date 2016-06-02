@@ -34,7 +34,7 @@ class Users extends Core{
 					echo "default";
 				}
 			}else{
-				
+				echo Lib::redirectjs(app_base.'login', "Login gagal, username / password yang anda masukkan salah.");
 			}
 		} catch (Exception $e) {
 			echo $e->getMessage();
@@ -93,6 +93,40 @@ class Users extends Core{
 	public function getUserForAdmin($id)
 	{
 		return $this->findBy($this->primaryKey, $id);
+	}
+
+	public function updateProfil($input)
+	{
+		try {
+			$data = [
+					'nama_lengkap'	=> $input['nama_lengkap'],
+					'no_hp'			=> $input['no_hp'],
+					'alamat'		=> $input['alamat'],
+					'id_kecamatan'	=> $input['id_kecamatan']
+					];
+			if($this->update($data, $this->primaryKey, $_SESSION['id_user'])){
+				echo Lib::redirectjs(app_base.'logout', 'Data diri anda berhasil diubah, silahkan login ulang untuk melanjutkan.');
+			}else{
+				header($this->back);
+			}
+		} catch (Exception $e) {	
+			echo $e->getMessage();
+		}
+	}
+
+	public function updatePassword($input)
+	{
+		try {
+			$data = ['password' => md5($input['password'])];
+			if($this->update($data, $this->primaryKey, $_SESSION['id_user'])){
+				echo Lib::redirectjs(app_base.'logout', 'Password Anda Berhasil diubah, silahkan login ulang.');
+			}else{
+				header($this->back);
+			}
+
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
 	}
 
 	// // // // // // // // // // // // // 

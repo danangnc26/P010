@@ -16,7 +16,7 @@
 					<input class="form-control cst" type="password" name="password" required>
 				</div>
 				<div class="form-group">
-					<button class="button-cst cst-success"><i class="fa fa-sign-in"></i> Log In</button>
+					<button style="margin-left:0px;" class="button-cst cst-success"><i class="fa fa-sign-in"></i> Log In</button>
 				</div>
 			</form>
 		</div>
@@ -56,7 +56,7 @@
 					<!-- <input class="form-control cst" type="text" name="alam" required> -->
 				</div>
 				<div class="form-group">
-					<button class="button-cst cst-success"><i class="fa fa-check-square-o"></i> Daftar</button>
+					<button style="margin-left:0px;" class="button-cst cst-success"><i class="fa fa-check-square-o"></i> Daftar</button>
 				</div>
 			</form>
 		</div>

@@ -108,4 +108,9 @@ class Pesan extends Core{
 		}
 	}
 
+	public function getLaporan($tgl)
+	{
+		return $this->raw("SELECT tbl_menu.nama_menu, tbl_menu.harga, tbl_item_pesan.qty, tbl_pesan.id_pesan,tbl_pesan.status, tbl_pesan.tanggal, tbl_pesan.total FROM tbl_menu INNER JOIN tbl_item_pesan ON tbl_item_pesan.id_menu = tbl_menu.id_menu INNER JOIN tbl_pesan ON tbl_item_pesan.id_pesan = tbl_pesan.id_pesan where tbl_pesan.tanggal like '".$tgl."%' and tbl_pesan.status!=0 order by tbl_pesan.tanggal asc");
+	}
+
 }

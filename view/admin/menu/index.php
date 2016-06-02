@@ -32,7 +32,7 @@
 				<tr>
 					<th width="10">No.</th>
 					<th>Nama Menu</th>
-					<th>Deskripsi</th>
+					<!-- <th>Deskripsi</th> -->
 					<th>Harga</th>
 					<th>Rating</th>
 					<th>Testimoni</th>
@@ -50,13 +50,15 @@
 				<tr>
 					<td><?php echo $key+1 ?></td>
 					<td><?php echo $value['nama_menu'] ?></td>
-					<td><?php echo $value['deskripsi'] ?></td>
+					<!-- <td><?php echo $value['deskripsi'] ?></td> -->
 					<td><?php echo Lib::ind($value['harga']) ?></td>
 					<td >
 						<div class="exemple2" data="<?php echo Lib::rate($value['id_menu']) ?>_2"></div>
 					</td>
 					<td align="center">
+					<a href="#" data-toggle="modal" data-target="#myModal" onclick="opnTetimoniFrame(<?php echo $value['id_menu'] ?>)">
 						<?php echo Lib::countTestimoni($value['id_menu']) ?> <i class="fa fa-comments" style="font-size:1.5em; cursor:pointer; "></i>
+					</a>
 					</td>
 					<td align="center" width="100">
 							<a href="<?php echo app_base.'edit_menu&id_menu='.$value['id_menu'] ?>" title="Edit">
@@ -74,3 +76,25 @@
 		</table>
 	</div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Testimoni</h4>
+			</div>
+			<div class="modal-body">
+				<iframe name="theFrame"  frameborder="0" scrolling="no" width="100%" height="450"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	function opnTetimoniFrame(id_menu)
+	  {
+	  	window.open("<?php echo base_url.'view/customer/testimoni.php' ?>?id_menu="+id_menu, "theFrame");
+	  }
+</script>

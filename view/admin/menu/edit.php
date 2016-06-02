@@ -41,7 +41,7 @@
 						<input type="file" name="gambar">
 					</div>
 					<div class="form-group">
-						<button class="button-cst cst-success"><i class="fa fa-check"></i> Simpan</button>
+						<button style="margin-left:0px;" class="button-cst cst-success"><i class="fa fa-check"></i> Simpan</button>
 						<a href="<?php echo app_base.'index_menu' ?>">
 							<button type="button" class="button-cst cst-danger"><i class="fa fa-arrow-left"></i> Kembali</button>
 						</a>
