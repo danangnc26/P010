@@ -1,3 +1,4 @@
+<?php Lib::uCheck() ?>
 <ul class="adm-menu">
 	<a href="<?php echo app_base.'show_welcome' ?>">
 		<li>
