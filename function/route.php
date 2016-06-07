@@ -120,6 +120,10 @@ function route($page)
 				include "view/admin/laporan/index.php";
 			break;
 
+		case 'delete_user':
+				$user->deleteUser($g['id_user']);
+			break;
+
 		// // // // // ADMIN // // // // // 
 		
 		case 'lihat_menu':

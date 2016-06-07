@@ -87,6 +87,7 @@
 				</div>
 				<?php  
 				$stt[] = $value3['status'];
+				$catatan[] = $value3['catatan'];
 				}} ?>
 			</div>
 		</div>
@@ -112,6 +113,7 @@
 							<p id="deskripsi_menu_<?php echo $value2['id_menu'] ?>" class="deskripsi">
 								<small><?php echo Lib::deskripsiMenu($value2['id_menu']) ?></small>
 							</p>
+							<u><?php echo $value2['tingkat_kepedasan'] ?></u>
 						</div>	
 					<input type="hidden" class="for_mdl_<?php echo $value2['id_menu'] ?>" value="<?php echo $value2['id_menu'] ?>">
 					<input type="hidden" class="for_mdl_id_pesan_<?php echo $value2['id_menu'] ?>" value="<?php echo $_GET['id_pesan'] ?>">
@@ -121,7 +123,7 @@
 						<div class="col-md-12">
 							<h5 class="nama-menu pull-right" style="line-height:25px; margin-right:10px;"><?php echo Lib::ind(Lib::hargaMenu($value2['id_menu']) * $value2['qty']) ?></h5>
 							<h5 class="nama-menu" style="line-height:25px; margin-right:10px;"><?php echo $value2['qty'] ?> x <?php echo Lib::ind(Lib::hargaMenu($value2['id_menu'])) ?></h5>
-						</div>
+						</div>	
 						<div class="col-md-12">
 							<?php
 							if(Lib::sTestimoni($value2['id_menu'], $_GET['id_pesan']) != null){
@@ -181,6 +183,10 @@
 		<input type="hidden" name="total" value="<?php echo array_sum($sub) + $pengiriman ?>">
 	</h5>
 		<h5 style="font-size:1.1em; font-weight:bold" >Total</h5>
+	</div>
+	<div class="col-md-12" style="padding-top:20px;">
+		<label><b>Catatan : </b></label><br>
+		<?php echo implode('', $catatan) ?>
 	</div>
 	</div>
 </div>

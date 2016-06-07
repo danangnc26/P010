@@ -108,7 +108,9 @@
 								<?php echo Lib::metodeBayar($value3['metode_bayar']) ?>
 							</div>
 						</div>
-						<?php  }} ?>
+						<?php  
+						$catatan[] = $value3['catatan'];
+						}} ?>
 					</div>
 					<div class="col-md-12">
 				<h4>Pesanan Customer</h4>
@@ -131,6 +133,7 @@
 								<p class="deskripsi">
 									<small><?php echo Lib::deskripsiMenu($value2['id_menu']) ?></small>
 								</p>
+								<u><?php echo $value2['tingkat_kepedasan'] ?></u>
 							</div>	
 						</div>	
 						<div class="col-md-5" >
@@ -181,6 +184,10 @@
 				<input type="hidden" name="total" value="<?php echo array_sum($sub) + $pengiriman ?>">
 			</h5>
 				<h5 style="font-size:1.1em; font-weight:bold" >Total</h5>
+			</div>
+			<div class="col-md-12" style="padding-top:20px;">
+			<label><b>Catatan : </b></label><br>
+				<?php echo implode('', $catatan) ?>
 			</div>
 			</div>
 			

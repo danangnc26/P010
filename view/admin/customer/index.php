@@ -32,7 +32,7 @@
 					<td><?php echo $value['nama_lengkap'] ?></td>
 					<td><?php echo $value['no_hp'] ?></td>
 					<td><?php echo $value['alamat'] ?></td>
-					<td><?php echo $value['id_kecamatan'] ?></td>
+					<td><?php echo Lib::namaKecamatan($value['id_kecamatan']) ?></td>
 					<td align="center" width="100">
 							<!-- <a href="<?php echo app_base.'edit_user&id_user='.$value['id_user'] ?>" title="Edit">
 								<i style="font-size:1.8em; margin-right:20px;" class="fa fa-edit"></i>

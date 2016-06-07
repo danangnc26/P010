@@ -80,6 +80,11 @@
 			<ul class="nav navbar-nav navbar-right">
 			<?php
 			if(!empty($_SESSION)){
+				if($_SESSION['level_user'] == 'admin'){
+			?>
+			<li><a href="<?php echo app_base.'show_welcome' ?>">Panel Admin</a></li>
+			<?php
+			}
 			?>
 			<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo (!empty($_SESSION)) ? $_SESSION['nama_lengkap'] : '' ?> <span class="caret"></span></a>

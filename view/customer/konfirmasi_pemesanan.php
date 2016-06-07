@@ -52,38 +52,38 @@
 				<small>Pilih metode pembayaran yang akan anda gunakan.</small>
 				<br><br>
 				<div class="row">
-					<div class="col-md-3">
+					<!-- <div class="col-md-3">
 						<label class="b">
 							<input required type="radio" class="trf" name="pembayaran" value="T"> Transfer
 						</label>
-					</div>
-					<div class="col-md-6">
+					</div> -->
+					<div class="col-md-12">
 						<label class="b">
-							<input required type="radio" class="byr" name="pembayaran" value="C"> Bayar saat pesanan tiba
+							<input checked required type="radio" class="byr" name="pembayaran" value="C"> Bayar saat pesanan tiba ( COD )
 						</label>
 					</div>
 					<div class="col-md-12">
-						<div class="hold_trf" style="display:none">
+						<!-- <div class="hold_trf" style="display:none">
 							<p>Silahkan lakukan pembayaran pada No. Rekening yang tertera dibawah ini :</p>
 							<li> BCA 0191092121  - a.n RM. Anugrah</li>
 					  		<li> BNI 4021390131  - a.n RM. Anugrah</li>
 					  		<li> Mandiri 3824719223  - a.n RM. Anugrah</li>
 					  		<li> BRI 1938183102  - a.n RM. Anugrah</li>
-						</div>
-						<div class="hold_byr" style="display:none">
+						</div> -->
+						<div class="hold_byr">
 							<p>Tagihan akan dibayarkan kepada kurir RM. Anugrah pada saat pesanan tiba di tempat tujuan.</p>
 						</div>
 					</div>
 					<script type="text/javascript">
-						$('input[name=pembayaran]').change(function(){
-							if($('input[name=pembayaran]:checked').attr('class') == 'trf'){
-								$('.hold_trf').show();
-								$('.hold_byr').hide();
-							}else{
-								$('.hold_trf').hide();
-								$('.hold_byr').show();
-							}
-						});
+						// $('input[name=pembayaran]').change(function(){
+						// 	if($('input[name=pembayaran]:checked').attr('class') == 'trf'){
+						// 		$('.hold_trf').show();
+						// 		$('.hold_byr').hide();
+						// 	}else{
+						// 		$('.hold_trf').hide();
+						// 		$('.hold_byr').show();
+						// 	}
+						// });
 					</script>
 				</div>
 			</div>
@@ -118,6 +118,21 @@
 							<h5 class="nama-menu pull-left" style="line-height:25px; margin-right:10px;"><?php echo $value2['qty'] ?> x <?php echo Lib::ind(Lib::hargaMenu($value2['id_menu'])) ?></h5>
 							<h5 class="nama-menu pull-right" style="line-height:25px; margin-right:10px;"><?php echo Lib::ind(Lib::hargaMenu($value2['id_menu']) * $value2['qty']) ?></h5>
 						</div>
+						<?php
+						if(strpos(strtolower(Lib::namaMenu($value2['id_menu'])), 'nasi') !== false || strpos(strtolower(Lib::namaMenu($value2['id_menu'])), 'mie') !== false || strpos(strtolower(Lib::namaMenu($value2['id_menu'])), 'bihun') !== false || strpos(strtolower(Lib::namaMenu($value2['id_menu'])), 'kwetiau') !== false){
+						?>
+						<div class="col-md-12">
+							<input type="hidden" value="<?php echo $value2['id_item_pesan'] ?>" name="id_item_pesan[]">
+							<select class="form-control cst" name="tingkat_kepedasan[]" required>
+								<option value="">-- Pilih Tingkat Kepedasan --</option>
+								<option value="Tidak Pedas">Tidak Pedas</option>
+								<option value="Sedang">Sedang</option>
+								<option value="Pedas">Pedas</option>
+								<option value="Pedas Sekali">Pedas Sekali</option>
+								<option value="Super Pedas">Super Pedas</option>
+							</select>
+						</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
@@ -157,6 +172,10 @@
 		<input type="hidden" name="total" value="<?php echo array_sum($sub) + $pengiriman ?>">
 	</h5>
 		<h5 style="font-size:1.1em; font-weight:bold" >Total</h5>
+	</div>
+	<div class="col-md-12" style="padding-top:20px;">
+		<label><b>Catatan : </b></label>
+		<textarea class="form-control cst" name="catatan" rows="3" style="resize:none"></textarea>
 	</div>
 	</div>
 </div>

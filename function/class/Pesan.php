@@ -57,14 +57,23 @@ class Pesan extends Core{
 
 	public function kirimPesanan($input)
 	{
+		if (!empty($input['tingkat_kepedasan'])) {
+			$tk = array_combine($input['id_item_pesan'], $input['tingkat_kepedasan']);
+		}
 		try {
 			$fin = $this->findCurrentPesan();
 			$data = [
 					'total'				=> $input['total'],
 					'metode_bayar'		=> $input['pembayaran'],
-					'status'			=> 1
+					'status'			=> 1,
+					'catatan'			=> nl2br($input['catatan'])
 					];
 			if($this->update($data, $this->primaryKey, $fin[0]['id_pesan'])){
+				if (!empty($input['tingkat_kepedasan'])) {
+					foreach ($tk as $k => $v) {
+						$this->raw_write("UPDATE tbl_item_pesan SET tingkat_kepedasan='".$v."' where id_item_pesan='".$k."'");
+					}
+				}
 				Lib::redirect('daftar_pemesanan');
 			}else{
 				header($this->back);

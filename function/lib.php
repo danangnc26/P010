@@ -177,7 +177,7 @@ Class Lib{
 	{
 		switch ($v) {
 			case 'C':
-				$t = 'Bayar saat pesanan tiba';
+				$t = 'Bayar saat pesanan tiba ( COD )';
 				break;
 			case 'T':
 				$t = 'Transfer';

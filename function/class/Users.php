@@ -129,6 +129,15 @@ class Users extends Core{
 		}
 	}
 
+	public function deleteUser($id)
+	{
+		if($this->delete($this->primaryKey, $id)){
+			Lib::redirect('index_customer');
+		}else{
+			header($this->back);
+		}
+	}
+
 	// // // // // // // // // // // // // 
 
 	// public function getUser()

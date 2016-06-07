@@ -1,5 +1,9 @@
 <?php
- Lib::uCheck() ?>
+ Lib::uCheck();
+ if($_SESSION['level_user'] == 'admin'){
+ 	header("location:javascript://history.go(-1)");
+ }
+ ?>
 
 <div class="row">
 	<div class="col-md-12">
